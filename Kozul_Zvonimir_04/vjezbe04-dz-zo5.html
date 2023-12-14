@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacija Registarske Oznake</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            function provjeriValjanostRegOznake(regOznaka) {
+
+                const regexBiH = /^[A-ZČĆŠĐŽa-zčćšđž]{2}\d{4}[A-ZČĆŠĐŽa-zčćšđž]{2}$/;
+
+                return regexBiH.test(regOznaka);
+            }
+
+            function izvrsiProvjeruOznake() {
+
+                const unesenaOznaka = document.getElementById("oznaka").value;
+
+                const valjanaOznaka = provjeriValjanostRegOznake(unesenaOznaka);
+
+                alert(valjanaOznaka ? "Valjana registarska oznaka" : "Nevaljana registarska oznaka");
+            }
+
+            document.getElementById("forma").addEventListener("submit", function (event) {
+                event.preventDefault();
+                izvrsiProvjeruOznake();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Validacija Registarske Oznake</h1>
+    <form id="forma">
+        <label for="oznaka">Unesite registarsku oznaku BiH:</label>
+        <input type="text" id="oznaka" name="oznaka" required>
+        <button type="submit">Provjeri valjanost</button>
+    </form>
+</body>
+</html>

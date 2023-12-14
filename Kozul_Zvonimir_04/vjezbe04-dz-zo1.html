@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation of Means</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function aritmetickaSredina(brojevi) {
+                const suma = brojevi.reduce((acc, num) => acc + num, 0);
+                return suma / brojevi.length;
+            }
+
+            function geometrijskaSredina(brojevi) {
+                const produkt = brojevi.reduce((acc, num) => acc * num, 1);
+                return Math.pow(produkt, 1 / brojevi.length);
+            }
+
+            function izracun() {
+                const inputString = prompt("Unesite skup brojeva odvojenih zarezom:");
+
+                if (!inputString) return;
+
+                const brojevi = inputString.split(',').map(Number);
+
+                const Aritmetička = aritmetickaSredina(brojevi);
+                const Geometrijska = geometrijskaSredina(brojevi);
+
+                document.getElementById("result").innerHTML =
+                    `Aritmetička sredina: ${Aritmetička.toFixed(2)}<br>
+                    Geometrijska sredina: ${Geometrijska.toFixed(2)}`;
+            }
+
+            izracun();
+        });
+    </script>
+</head>
+<body>
+    <h1>Izračun aritmetičke i geometrijske sredine</h1>
+    <div id="result"></div>
+</body>
+</html>

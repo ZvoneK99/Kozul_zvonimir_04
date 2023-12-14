@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocjenjivanje</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+ 
+            function azurirajOcjenu() {
+
+                const unosOcjene = document.getElementById("ocjena").value;
+
+
+                const ocjena = parseInt(unosOcjene);
+
+                if (!isNaN(ocjena) && ocjena >= 1 && ocjena <= 5) {
+                    let tekstOcjene = "";
+                    switch (ocjena) {
+                        case 1:
+                            tekstOcjene = "Nedovoljan";
+                            break;
+                        case 2:
+                            tekstOcjene = "Dovoljan";
+                            break;
+                        case 3:
+                            tekstOcjene = "Dobar";
+                            break;
+                        case 4:
+                            tekstOcjene = "Vrlo dobar";
+                            break;
+                        case 5:
+                            tekstOcjene = "Odličan";
+                            break;
+                    }
+
+
+                    document.getElementById("rezultat").innerText = `Ocijena ${ocjena} znači: ${tekstOcjene}`;
+                } else {
+
+                    document.getElementById("rezultat").innerText = "Unesite ocjenu od 1 do 5.";
+                }
+            }
+
+
+            document.getElementById("ocjenaForma").addEventListener("submit", function (event) {
+                event.preventDefault();
+                azurirajOcjenu();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Ocjenjivanje</h1>
+    <form id="ocjenaForma">
+        <label for="ocjena">Unesite ocjenu (1-5):</label>
+        <input type="text" id="ocjena" name="ocjena" required pattern="[1-5]" title="Unesite ocjenu od 1 do 5">
+        <button type="submit">Ažuriraj ocjenu</button>
+    </form>
+    <p id="rezultat"></p>
+</body>
+</html>

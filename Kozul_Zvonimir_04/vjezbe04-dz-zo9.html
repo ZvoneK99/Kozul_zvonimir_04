@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žarulja s prekidačem</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+
+        #zarulja-on,
+        #zarulja-off {
+            display: none; 
+            width: 100px;
+            margin-left: 10px;
+        }
+
+        #prekidac {
+            cursor: pointer;
+            width: 50px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const prekidac = document.getElementById("prekidac");
+            const zaruljaOn = document.getElementById("zarulja-on");
+            const zaruljaOff = document.getElementById("zarulja-off");
+
+            prekidac.addEventListener("click", function () {
+                if (zaruljaOn.style.display === "none") {
+         
+                    zaruljaOn.style.display = "block";
+                    zaruljaOff.style.display = "none";
+     
+                    prekidac.src = "./Slike/on-removebg-preview.png";
+                } else {
+      
+                    zaruljaOn.style.display = "none";
+                    zaruljaOff.style.display = "block";
+       
+                    prekidac.src = "./Slike/off-removebg-preview.png";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <img id="prekidac" src="./Slike/on-removebg-preview.png" alt="Prekidač">
+    <div id="zarulja-on"> 
+        <img src="./Slike/zarulja_on_2.png" alt="Uključena žarulja">
+    </div>
+    <div id="zarulja-off"> 
+        <img src="./Slike/zarulja_off_2.png" alt="Isključena žarulja">
+    </div>
+</body>
+</html>

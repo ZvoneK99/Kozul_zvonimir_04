@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Kalkulator</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            function izracunaj(operacija) {
+
+                const broj1 = parseFloat(document.getElementById("broj1").value);
+                const broj2 = parseFloat(document.getElementById("broj2").value);
+
+                if (isNaN(broj1) || isNaN(broj2)) {
+                    alert("Unesite valjane brojeve.");
+                    return;
+                }
+
+                let rezultat;
+
+              
+                switch (operacija) {
+                    case 'zbrajanje':
+                        rezultat = broj1 + broj2;
+                        break;
+                    case 'oduzimanje':
+                        rezultat = broj1 - broj2;
+                        break;
+                    case 'mnozenje':
+                        rezultat = broj1 * broj2;
+                        break;
+                    case 'dijeljenje':
+                        rezultat = broj1 / broj2;
+                        break;
+                    case 'sinus':
+                        rezultat = Math.sin(broj1);
+                        break;
+                    case 'kosinus':
+                        rezultat = Math.cos(broj1);
+                        break;
+                    case 'tanges':
+                        rezultat = Math.tan(broj1);
+                        break;
+                    case 'logaritam':
+                        rezultat = Math.log(broj1);
+                        break;
+                    case 'logaritamBaza10':
+                        rezultat = Math.log10(broj1);
+                        break;
+                    case 'kvadriranje':
+                        rezultat = Math.pow(broj1, 2);
+                        break;
+                    case 'kubiranje':
+                        rezultat = Math.pow(broj1, 3);
+                        break;
+                    case 'potenciranje':
+                        rezultat = Math.pow(broj1, broj2);
+                        break;
+                    default:
+                        alert("Nepodržana operacija.");
+                        return;
+                }
+
+           
+                alert(rezultat).innerText = `Rezultat: ${rezultat}`;
+            }
+
+            document.getElementById("zbrajanje").addEventListener("click", function () {
+                izracunaj('zbrajanje');
+            });
+            document.getElementById("oduzimanje").addEventListener("click", function () {
+                izracunaj('oduzimanje');
+            });
+            document.getElementById("mnozenje").addEventListener("click", function () {
+                izracunaj('mnozenje');
+            });
+            document.getElementById("dijeljenje").addEventListener("click", function () {
+                izracunaj('dijeljenje');
+            });
+            document.getElementById("sinus").addEventListener("click", function () {
+                izracunaj('sinus');
+            });
+            document.getElementById("kosinus").addEventListener("click", function () {
+                izracunaj('kosinus');
+            });
+            document.getElementById("tanges").addEventListener("click", function () {
+                izracunaj('tanges');
+            });
+            document.getElementById("logaritam").addEventListener("click", function () {
+                izracunaj('logaritam');
+            });
+            document.getElementById("logaritamBaza10").addEventListener("click", function () {
+                izracunaj('logaritamBaza10');
+            });
+            document.getElementById("kvadriranje").addEventListener("click", function () {
+                izracunaj('kvadriranje');
+            });
+            document.getElementById("kubiranje").addEventListener("click", function () {
+                izracunaj('kubiranje');
+            });
+            document.getElementById("potenciranje").addEventListener("click", function () {
+                izracunaj('potenciranje');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Online Kalkulator</h1>
+    <form>
+        <label for="broj1">Unesite prvi broj:</label><br>
+        <input type="text" id="broj1" required><br>
+
+        <label for="broj2">Unesite drugi broj:</label><br>
+        <input type="text" id="broj2" required><br><br>
+
+        <button type="button" id="zbrajanje">+</button>
+        <button type="button" id="oduzimanje">-</button>
+        <button type="button" id="mnozenje">*</button>
+        <button type="button" id="dijeljenje">/</button><br><br>
+        <button type="button" id="sinus">sin</button>
+        <button type="button" id="kosinus">cos</button>
+        <button type="button" id="tanges">tan</button><br><br>
+        <button type="button" id="logaritam">ln</button>
+        <button type="button" id="logaritamBaza10">log</button><br><br>
+        <button type="button" id="kvadriranje">^2</button>
+        <button type="button" id="kubiranje">^3</button>
+        <button type="button" id="potenciranje">^n</button>
+    </form>
+
+    <div id="rezultat"></div>
+</body>
+</html>
